@@ -343,8 +343,9 @@ const total = computed(() => {
   <p>قیمت: {{ price }}</p>
 
   <p>تعداد: {{ count }}</p>
+  <p>heloo</p>
 
-  <p>مبلغ کل: {{ total }}</p>
+  <!-- <p>مبلغ کل: {{ total }}</p> -->
 
   <button @click="count++">
     اضافه کردن محصول
