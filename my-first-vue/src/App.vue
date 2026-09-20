@@ -327,7 +327,7 @@ const finalPrice = computed(() => {
 
 
 
-<script setup>
+<!-- <script setup>
 import { ref, computed } from 'vue'
 
 const price = ref(50000)
@@ -346,9 +346,40 @@ const total = computed(() => {
   <p>heloo</p>
 
   <!-- <p>مبلغ کل: {{ total }}</p> -->
-
+<!-- 
   <button @click="count++">
     اضافه کردن محصول
+  </button> -->
+
+<!-- </template> --> -->
+
+
+
+
+<script setup>
+import { ref, computed } from 'vue'
+
+const price = ref(100000)
+const count = ref(2)
+
+const total = computed(() => {
+  return price.value * count.value
+})
+</script>
+
+<template>
+  <h2>قیمت محصول: {{ price }}</h2>
+
+  <h2>تعداد: {{ count }}</h2>
+
+  <h2>مبلغ کل: {{ total }}</h2>
+
+  <button @click="count++">
+    اضافه کردن
   </button>
 
+  <button @click="count--">
+    کم کردن
+  </button>
 </template>
+ 
