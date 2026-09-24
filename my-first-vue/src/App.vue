@@ -945,7 +945,7 @@ function submitForm() {
 <template>
   <input
     v-model="name"
-    placeholder="نام خود   "
+
   >
 
   <button @click="submitForm">
