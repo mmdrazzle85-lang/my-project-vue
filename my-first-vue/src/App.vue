@@ -931,7 +931,7 @@ import SearchBox from './components/SearchBox.vue' -->
 
 
 
-
+<!-- 
 <script setup>
 import { ref } from 'vue'
 
@@ -951,4 +951,450 @@ function submitForm() {
   <button @click="submitForm">
     ثبت
   </button>
+</template> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script setup>
+import { ref } from 'vue'
+
+const name = ref('')
+
+function submitForm() {
+  alert(name.value)
+}
+</script>
+
+<template>
+ <form @submit.prevent="submitForm">
+
+    <input
+      v-model="name"
+      placeholder="نام"
+    >
+
+    <button type="submit">
+      ثبت
+    </button>
+
+  </form>
+</template> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script setup>
+import { ref } from 'vue'
+
+const name = ref('')
+const message = ref('')
+
+function submitForm() {
+
+  if (name.value === '') {
+    message.value = 'لطفاً نام خود را وارد کنید'
+    return
+  }
+
+  message.value = 'فرم با موفقیت ثبت شد'
+}
+</script>
+
+<template>
+
+  <h1>ثبت نام</h1>
+
+  <form @submit.prevent="submitForm">
+
+    <input
+      v-model="name"
+      placeholder="نام خود را وارد کنید"
+    >
+
+    <button type="submit">
+      ثبت
+    </button>
+
+  </form>
+
+  <p>
+    {{ message }}
+  </p>
+
+</template> -->
+
+
+
+
+
+<!-- 
+<script setup>
+import { ref } from 'vue'
+
+const name = ref('')
+</script>
+
+<template>
+
+  <input v-model.lazy="name">
+
+  <h2>{{ name }}</h2>
+
+</template> -->
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<script setup>
+import { ref, watchEffect } from 'vue'
+
+const name = ref('Yasin')
+
+watchEffect(() => {
+  console.log(name.value)
+})
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<script setup>
+import { ref, watchEffect } from 'vue'
+
+const name = ref('')
+const message = ref('')
+
+watchEffect(() => {
+  if (name.value === '') {
+    message.value = 'نام وارد نشده'
+  } else {
+    message.value = 'نام وارد شده: ' + name.value
+  }
+})
+</script>
+
+<template>
+
+  <input
+    v-model="name"
+    placeholder="نام"
+  >
+
+  <p>{{ message }}</p>
+
+</template> -->
+
+
+<!-- 
+<script setup>
+import { ref, computed, watch } from 'vue'
+const price = ref(200000)
+const count = ref(2)
+const total = computed(() => {
+  return price.value * count.value
+})
+watch(count, () => {
+  console.log('تعداد محصول تغییر کرد')
+})
+</script>
+<template>
+<p> قیمت {{ price }}</p>
+<p>تعداد{{ count }}</p>
+<p> قیمت کل {{ total }}</p>
+<button @click="count++">افزایش</button>
+</template> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script setup>
+import { ref, computed } from 'vue'
+
+const products = ref([
+  'Nike',
+  'Adidas',
+  'Puma',
+  'Reebok'
+])
+
+const search = ref('')
+const filteredProducts = computed(() => {
+  return products.value.filter(product => {
+    return product.toLowerCase().includes(search.value.toLowerCase())
+  })
+})
+</script>
+
+<template>
+
+  <input
+    v-model="search"
+    placeholder="جستجوی محصول"
+  >
+
+  <div
+   v-for="product in filteredProducts"
+    :key="product"
+  >
+    {{ product }}
+  </div>
+
+</template> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<script setup>
+import { ref } from 'vue'
+
+const products = ref([
+  {
+    id: 1,
+    name: 'Nike Air',
+    price: 2000000,
+    category: 'کفش'
+  },
+  {
+    id: 2,
+    name: 'Adidas Sport',
+    price: 1800000,
+    category: 'کفش'
+  },
+  {
+    id: 3,
+    name: 'Puma T-Shirt',
+    price: 900000,
+    category: 'لباس'
+  }
+])
+</script>
+
+<template>
+
+  <h1>محصولات</h1>
+
+  <div
+    v-for="product in products"
+    :key="product.id"
+  >
+
+    <h2>{{ product.name }}</h2>
+
+    <p>
+      قیمت: {{ product.price }} تومان
+    </p>
+
+    <p>
+      دسته‌بندی: {{ product.category }}
+    </p>
+
+    <hr>
+
+  </div>
+
+</template> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<script setup>
+
+import { ref } from 'vue'
+import ProductCard from './components/ProductCard.vue'
+
+const products = ref([
+  {
+    id: 1,
+    name: 'Nike Air',
+    price: 2000000,
+    category: 'کفش',
+     mojodi:'mojid'
+  },
+  {
+    id: 2,
+    name: 'Adidas Sport',
+    price: 1800000,
+    category: 'کفش',
+     mojodi:'namojid'
+  },
+  {
+    id: 3,
+    name: 'Puma T-Shirt',
+    price: 900000,
+    category: 'لباس'
+    ,
+    mojodi:'mojid'
+  }
+])
+
+</script>
+
+<template>
+
+  <h1>فروشگاه</h1>
+
+  <ProductCard
+    v-for="product in products"
+    :key="product.id"
+    :product="product"
+  />
+
+</template> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script setup>
+
+import { ref } from 'vue'
+import ProductCard from './components/ProductCard.vue'
+
+const cartCount = ref(0)
+
+const products = ref([
+  {
+    id: 1,
+    name: 'Nike Air',
+    price: 2000000,
+    category: 'کفش'
+  },
+  {
+    id: 2,
+    name: 'Adidas Sport',
+    price: 1800000,
+    category: 'کفش'
+  },
+  {
+    id: 3,
+    name: 'Puma T-Shirt',
+    price: 900000,
+    category: 'لباس'
+  }
+])
+
+function addToCart(product) {
+
+  cartCount.value++
+
+  alert(product.name + ' به سبد اضافه شد')
+
+}
+
+</script>
+
+<template>
+
+  <h1>فروشگاه</h1>
+
+  <h2>
+    تعداد محصولات سبد: {{ cartCount }}
+  </h2>
+
+  <ProductCard
+    v-for="product in products"
+    :key="product.id"
+    :product="product"
+    @addToCart="addToCart"
+  />
+
 </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+devops
+sshkey میسازیم و بعد پروژه پوش میکنیم مرج ریکویست میدیم مرج ریکویست رو قبول میکنیم ببینم ایا روی مین مینشیند؟
